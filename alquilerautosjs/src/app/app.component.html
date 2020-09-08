@@ -1,3 +1,8 @@
+<app-menubar></app-menubar>
+<br><br>
+<router-outlet></router-outlet>
+<br>
+<app-footer></app-footer>
 <div class="container-fluid">
   <div style="color: blue">
     <h1>{{ title }}</h1>
@@ -30,3 +35,4 @@
     <pre *ngFor="let item of items | async">{{ item.content }}</pre>
   </div>
 </div>
+
