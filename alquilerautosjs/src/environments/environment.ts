@@ -9,9 +9,10 @@ export const environment = {
     authDomain: 'alquilerjs.firebaseapp.com',
     databaseURL: 'https://alquilerjs.firebaseio.com',
     projectId: 'alquilerjs',
-    storageBucket: '',
+    storageBucket: 'alquilerjs.appspot.com',
     messagingSenderId: '371073674622',
-  },
+    appId: '1:371073674622:web:323110eea3406fc9a3972f'
+  }
 };
 
 /*
