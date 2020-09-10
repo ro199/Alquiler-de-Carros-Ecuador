@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -14,6 +13,12 @@ import { OfertasComponent } from './components/ofertas/ofertas.component';
 import { AgenciasComponent } from './components/agencias/agencias.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AutocardComponent } from './components/autocard/autocard.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AuthService} from './servicios/auth.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +30,20 @@ import { AutocardComponent } from './components/autocard/autocard.component';
     OfertasComponent,
     AgenciasComponent,
     FooterComponent,
-    AutocardComponent
+    AutocardComponent,
+    LoginComponent,
+    RegistroComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

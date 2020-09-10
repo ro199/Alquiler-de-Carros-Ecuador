@@ -28,16 +28,23 @@
             Nosotros</a>
         </li>
       </ul>
-
-      <div class="md-form my-0">
+      <div class="md-form my-0" *ngIf="!(user$ | async)">
         <button class="btn btn-outline-white mr-sm-2 btn-rounded" data-toggle="modal" data-target="#modalLoginForm"
                 id="initsesion">Iniciar Sesión
         </button>
       </div>
 
-      <div class="md-form my-0">
+      <div class="md-form my-0" *ngIf="!(user$ | async)">
         <button class="btn btn-outline-white mr-sm-2 btn-rounded" data-toggle="modal"
                 data-target="#modalRegisterForm" id="initregister">Registrarse
+        </button>
+      </div>
+      <div class="md-form my-0" *ngIf="(user$ | async)">
+        <button class="btn btn-outline-white mr-sm-2 btn-rounded" id="Cuenta">Cuenta
+        </button>
+      </div>
+      <div class="md-form my-0" *ngIf="(user$ | async)">
+        <button class="btn btn-outline-white mr-sm-2 btn-rounded" id="cerrarsesion" (click)="logOut()">Cerrar Sesión
         </button>
       </div>
 

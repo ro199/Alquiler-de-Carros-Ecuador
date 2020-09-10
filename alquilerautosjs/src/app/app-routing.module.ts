@@ -5,6 +5,9 @@ import {CatalogoComponent} from './components/catalogo/catalogo.component';
 import {HomeComponent} from './components/home/home.component';
 import {NosotrosComponent} from './components/nosotros/nosotros.component';
 import {OfertasComponent} from './components/ofertas/ofertas.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegistroComponent} from './components/registro/registro.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -32,6 +35,18 @@ const routes: Routes = [
   {
     path: 'nosotros',
     component: NosotrosComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 
