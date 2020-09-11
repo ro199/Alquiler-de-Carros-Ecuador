@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,15 +11,15 @@ export class AppComponent {
   title = 'alquilerautosjs';
   description = 'Angular-Fire-Demo';
 
-  itemValue = '';
-  items: Observable<any[]>;
+  autosValue = '';
+  autos: Observable<any[]>;
 
-  constructor(public db: AngularFireDatabase) {
-    this.items = db.list('items').valueChanges();
+  constructor(public db: AngularFirestore) {
+    this.autos = db.collection('autos').valueChanges();
   }
 
   onSubmit() {
-    this.db.list('items').push({ content: this.itemValue });
-    this.itemValue = '';
+    this.db.collection('autos').add({ content: this.autosValue });
+    this.autosValue = '';
   }
 }

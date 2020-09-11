@@ -1,7 +1,6 @@
-<app-menubar></app-menubar>
-<br><br>
+<app-menubar></app-menubar> <br /><br />
 <router-outlet></router-outlet>
-<br>
+<br />
 <app-footer></app-footer>
 <div class="container-fluid">
   <div style="color: blue">
@@ -12,15 +11,15 @@
   <div style="width: 300px">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="item">Item</label>
+        <label for="autos">Autos</label>
         <input
           type="text"
           class="form-control"
           placeholder="Enter content..."
-          id="item"
+          id="autos"
           required
-          [(ngModel)]="itemValue"
-          name="item"
+          [(ngModel)]="autosValue"
+          name="autos"
         />
       </div>
 
@@ -32,7 +31,6 @@
 
   <h2>Content from Firebase</h2>
   <div class="col-md-3">
-    <pre *ngFor="let item of items | async">{{ item.content }}</pre>
+    <pre *ngFor="let auto of autos | async">{{ auto.content }}</pre>
   </div>
 </div>
-
