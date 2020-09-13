@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: 'alquilerjs.appspot.com',
     messagingSenderId: '371073674622',
     appId: '1:371073674622:web:323110eea3406fc9a3972f'
-  }
+  },
+  mapBoxToken: 'pk.eyJ1IjoiYWxleGFyZXZhbG85IiwiYSI6ImNqenNqZTFjNTAydDIzbW54bXZvMHpjYmsifQ._GESnmG3HCwGT5thJrIyWw'
 };
 
 /*
