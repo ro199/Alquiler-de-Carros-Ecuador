@@ -1,23 +1,25 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {AgenciasComponent} from './components/agencias/agencias.component';
-import {CatalogoComponent} from './components/catalogo/catalogo.component';
-import {HomeComponent} from './components/home/home.component';
-import {NosotrosComponent} from './components/nosotros/nosotros.component';
-import {OfertasComponent} from './components/ofertas/ofertas.component';
+import {AgenciasComponent} from './rutas/agencias/agencias.component';
+import {CatalogoComponent} from './rutas/catalogo/catalogo.component';
+import {HomeComponent} from './rutas/home/home.component';
+import {NosotrosComponent} from './rutas/nosotros/nosotros.component';
+import {OfertasComponent} from './rutas/ofertas/ofertas.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegistroComponent} from './components/registro/registro.component';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {AdministradorComponent} from './rutas/administrador/administrador.component';
+import {ClienteComponent} from './rutas/cliente/cliente.component';
+import {RutaAdminAlquilerComponent} from './rutas/ruta-admin-alquiler/ruta-admin-alquiler.component';
+import {RutaAdminCatalogoComponent} from './rutas/ruta-admin-catalogo/ruta-admin-catalogo.component';
+import {RutaAdminInfoComponent} from './rutas/ruta-admin-info/ruta-admin-info.component';
+import {RutaAdminValoracionComponent} from './rutas/ruta-admin-valoracion/ruta-admin-valoracion.component';
+import {RutaClienteInfoComponent} from './rutas/ruta-cliente-info/ruta-cliente-info.component';
+import {RutaClienteAlquilerComponent} from './rutas/ruta-cliente-alquiler/ruta-cliente-alquiler.component';
 
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
+    path: 'inicio',
     component: HomeComponent
   },
   {
@@ -45,9 +47,56 @@ const routes: Routes = [
     component: RegistroComponent
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent
-  }
+    path: 'cliente',
+    component: ClienteComponent,
+    children: [
+      {
+        path: 'info',
+        component: RutaClienteInfoComponent
+      },
+      {
+        path: 'alquiler',
+        component: RutaClienteAlquilerComponent
+      },
+      {
+        path: '',
+        redirectTo: 'info',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: 'administrador',
+    component: AdministradorComponent,
+    children: [
+      {
+        path: 'info',
+        component: RutaAdminInfoComponent
+      },
+      {
+        path: 'catalogo',
+        component: RutaAdminCatalogoComponent
+      },
+      {
+        path: 'valoracion',
+        component: RutaAdminValoracionComponent
+      },
+      {
+        path: 'alquiler',
+        component: RutaAdminAlquilerComponent
+      },
+      {
+        path: '',
+        redirectTo: 'info',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

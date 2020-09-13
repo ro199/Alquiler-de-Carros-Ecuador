@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Puntuacion } from '../../Clases/puntuacion';
+import { Puntuacion } from '../../components/Clases/puntuacion';
 
 @Injectable()
 export class PuntuacionService {

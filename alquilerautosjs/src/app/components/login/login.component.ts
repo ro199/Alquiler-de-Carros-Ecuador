@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import {AuthService} from '../../servicios/auth.service';
+import {AuthService} from '../../servicios/http/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     try {
       const user = await this.authSvc.login(email, password);
       if (user) {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/cuenta']);
       }
     } catch (e) {
       console.log('Error Login', e);

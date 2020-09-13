@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Renta } from '../../Clases/renta';
+import { Renta } from '../../components/Clases/renta';
 
 @Injectable()
 export class RentaService {
