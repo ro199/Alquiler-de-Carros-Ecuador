@@ -1,0 +1,31 @@
+<div class="container-fluid mt-lg-5">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav flex-column md-pills nav-justified pills-border-right-radius pills-purple-count">
+        <li class="nav-item">
+          <a class="nav-link text-left" data-toggle="tab" [routerLink]="['/administrador', 'info']"
+             routerLinkActive="active" role="tab">
+            <i class="fas fa-user-circle mr-4"></i>Información Personal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-left" data-toggle="tab" [routerLink]="['/administrador', 'catalogo']"
+             routerLinkActive="active" role="tab">
+            <i class="fas fa-user-shield mr-4"></i>Administrar Catalogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-left" data-toggle="tab" [routerLink]="['/administrador', 'valoracion']"
+             routerLinkActive="active" role="tab">
+            <i class="far fa-star mr-4"></i>Ver Valoraciones</a></li>
+        <li class="nav-item">
+          <a class="nav-link text-left" data-toggle="tab" [routerLink]="['/administrador', 'alquiler']"
+             routerLinkActive="active" role="tab">
+            <i class="fas fa-book mr-4"></i>Ver Alquileres</a></li>
+      </ul>
+    </div>
+    <div class="col-md-9 tab-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br>

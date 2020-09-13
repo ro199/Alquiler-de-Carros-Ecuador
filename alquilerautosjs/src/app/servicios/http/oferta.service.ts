@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Oferta } from '../../Clases/oferta';
+import { Oferta } from '../../components/Clases/oferta';
 
 @Injectable()
 export class OfertaService {

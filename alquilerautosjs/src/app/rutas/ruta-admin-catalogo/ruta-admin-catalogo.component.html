@@ -1,0 +1,19 @@
+<div class="tab-pane" id="panel101" role="tabpanel">
+  <div class="container-fluid">
+    <div class="row mb-2 justify-content-center">
+      <div *ngFor="let autos of arregloAutos">
+        <div class="col-md">
+          <app-adminautocard
+            [nombreAuto]="autos.nombreAuto"
+            [precioAuto]="autos.precioAuto"
+            [urlAutoimage]="autos.urlAutoimage"
+          >
+          </app-adminautocard>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="float">
+    <i class="fa fa-plus my-float"></i>
+  </a>
+</div>

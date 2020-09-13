@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AutoService } from '../servicios/http/auto.service';
+import { AutoService } from '../../servicios/http/auto.service';
 import { Auto } from '../Clases/auto';
 
 @Component({
@@ -12,7 +12,6 @@ export class AutocardComponent implements OnInit {
   @Input() nombreAuto: string;
   @Input() precioAuto: string;
   @Input() id: number;
-
   @Input() autos: Auto;
 
   autoList: any;

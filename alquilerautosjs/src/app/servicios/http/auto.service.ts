@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Auto } from '../../Clases/auto';
+import { Auto } from '../../components/Clases/auto';
 
 @Injectable({
   providedIn: 'root',
