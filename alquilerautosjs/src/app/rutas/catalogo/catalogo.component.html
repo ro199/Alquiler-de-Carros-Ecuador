@@ -3,9 +3,9 @@
     <div *ngFor="let autos of arregloAutos">
       <div class="col-md">
         <app-autocard
-          [nombreAuto]="autos.nombreAuto"
-          [precioAuto]="autos.precioAuto"
-          [urlAutoimage]="autos.urlAutoimage"
+          [nombreAuto]="autos.nombre"
+          [precioAuto]="autos.precio"
+          [urlAutoimage]="autos.imageUrl"
         >
         </app-autocard>
       </div>

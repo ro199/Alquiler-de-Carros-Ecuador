@@ -1,53 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { AutoService } from 'src/app/servicios/http/auto.service';
 
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
-  styleUrls: ['./catalogo.component.css']
+  styleUrls: ['./catalogo.component.css'],
 })
 export class CatalogoComponent implements OnInit {
-  arregloAutos = [
-    {
-      id: 0,
-      urlAutoimage: './assets/Auto1.svg',
-      nombreAuto: 'Chevrolet D – MAX',
-      precioAuto: '105.00'
-    },
-    {
-      id: 1,
-      urlAutoimage: './assets/Auto2.svg',
-      nombreAuto: 'Mazda BT – 50',
-      precioAuto: '95.00'
-    },
-    {
-      id: 2,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00'
-    },
-    {
-      id: 3,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00'
-    },
-    {
-      id: 4,
-      urlAutoimage: './assets/Auto2.svg',
-      nombreAuto: 'Mazda BT – 50',
-      precioAuto: '95.00'
-    },
-    {
-      id: 5,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00'
-    },
-  ];
+  arregloAutos: any = [];
 
-  constructor() { }
+  constructor(private _autoService: AutoService) {}
 
   ngOnInit(): void {
+    this.getAutoCollection();
   }
 
+  getAutoCollection() {
+    this._autoService.getAutoCollection().subscribe((autos) => {
+      this.arregloAutos = autos.map((item) => item.payload.doc.data());
+    });
+  }
 }

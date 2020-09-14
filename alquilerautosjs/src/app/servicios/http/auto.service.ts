@@ -8,7 +8,7 @@ import { Auto } from '../../components/Clases/auto';
 export class AutoService {
   constructor(private _db: AngularFirestore) {}
 
-  createAuto(auto: Auto): Promise<any> {
+  createAuto(auto: any): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this._db
         .collection('autos')
@@ -28,6 +28,7 @@ export class AutoService {
   }
 
   deleteAuto(id_autos: number): Promise<void> {
+    console.log('entre al delete el id es: ' + id_autos);
     return this._db
       .collection('autos')
       .doc('' + id_autos)
