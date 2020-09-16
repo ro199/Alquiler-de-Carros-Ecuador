@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AutoService } from '../../servicios/http/auto.service';
-import { Auto } from '../Clases/auto';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-autocard',
@@ -12,11 +10,19 @@ export class AutocardComponent implements OnInit {
   @Input() urlAutoimage: string;
   @Input() nombreAuto: string;
   @Input() precioAuto: string;
-  @Input() id: number;
+  @Input() id: string;
 
   autoList: any;
 
-  constructor(private _autoService: AutoService) {}
+  constructor(private readonly _router: Router) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  alquilar(id): void {
+    console.log(id);
+    const ruta = ['/alquiler', id];
+    this._router.navigate(ruta);
+  }
 }

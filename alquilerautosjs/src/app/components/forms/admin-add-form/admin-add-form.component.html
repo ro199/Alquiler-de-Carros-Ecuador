@@ -1,0 +1,71 @@
+<div class="card-body border">
+  <div class="md-form text-center">
+    <img
+      id="image-auto-rent-edit2"
+      class="rounded mx-auto d-block img-fluid"
+      [src]="imgSrc"
+    />
+  </div>
+  <form
+    [formGroup]="formTemplate"
+    (submit)="onSubmit(formTemplate.value)"
+  >
+    <div class="md-form">
+      <i class="fas fa-signature prefix black-text"></i>
+      <input
+        type="text"
+        id="form_nombre2"
+        class="black-text form-control"
+        formControlName="nombre"
+      />
+      <label for="form_nombre2">Nombre Auto</label>
+    </div>
+    <div class="md-form">
+      <i class="fas fa-car prefix black-text"></i>
+      <input
+        type="text"
+        id="form_motor2"
+        class="black-text form-control"
+        formControlName="nmotor"
+      />
+      <label for="form_motor2">Placa Auto</label>
+    </div>
+    <div class="md-form">
+      <i class="fas fa-money-check-alt prefix black-text"></i>
+      <input
+        type="number"
+        id="form_precio2"
+        class="black-text form-control"
+        formControlName="precio"
+      />
+      <label for="form_precio2">Precio Auto</label>
+    </div>
+    <div class="md-form">
+      <i class="fas fa-images prefix black-text"></i>
+      <input
+        type="file"
+        accept="image/*"
+        class="form-control black-text form-control"
+        formControlName="imageUrl"
+        id="form_file2"
+        (change)="showPreview($event)"
+      />
+      <div
+        class="text-danger"
+        *ngIf="isSubmitted && formControls.imageUrl.errors?.required"
+      >
+        Este campo es requerido
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button
+        type="submit"
+        id="addnewButton"
+        class="btn waves-effect waves-light btn-rounded"
+        style="background-color: #52489c"
+      >
+        Registrar
+      </button>
+    </div>
+  </form>
+</div>

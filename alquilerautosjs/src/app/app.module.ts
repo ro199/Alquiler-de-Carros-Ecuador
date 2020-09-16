@@ -32,6 +32,10 @@ import { RutaClienteInfoComponent } from './rutas/ruta-cliente-info/ruta-cliente
 import { RutaClienteAlquilerComponent } from './rutas/ruta-cliente-alquiler/ruta-cliente-alquiler.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AdminUpdateFormComponent } from './components/forms/admin-update-form/admin-update-form.component';
+import { AdminAddFormComponent } from './components/forms/admin-add-form/admin-add-form.component';
+import { AlquilerComponent } from './rutas/alquiler/alquiler.component';
+import { HomeMainFormComponent } from './components/forms/home-main-form/home-main-form.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     RutaClienteInfoComponent,
     RutaClienteAlquilerComponent,
     CarouselComponent,
+    AdminUpdateFormComponent,
+    AdminAddFormComponent,
+    AlquilerComponent,
+    HomeMainFormComponent,
   ],
   imports: [
     BrowserModule,

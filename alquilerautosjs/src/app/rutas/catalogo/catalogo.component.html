@@ -1,14 +1,15 @@
 <div class="container-fluid mt-lg-5">
   <div class="row mb-2 justify-content-center">
-    <div *ngFor="let autos of arregloAutos">
-      <div class="col-md">
+    <ng-container *ngFor="let autos of arregloAutos">
+      <div class="col-md-4">
         <app-autocard
-          [nombreAuto]="autos.nombre"
-          [precioAuto]="autos.precio"
-          [urlAutoimage]="autos.imageUrl"
+          [id]="autos.id"
+          [nombreAuto]="autos.data().nombre"
+          [precioAuto]="autos.data().precio"
+          [urlAutoimage]="autos.data().imageUrl"
         >
         </app-autocard>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>

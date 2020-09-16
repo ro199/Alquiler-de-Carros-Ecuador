@@ -15,9 +15,9 @@ export class CatalogoComponent implements OnInit {
     this.getAutoCollection();
   }
 
-  getAutoCollection() {
+  getAutoCollection(): void {
     this._autoService.getAutoCollection().subscribe((autos) => {
-      this.arregloAutos = autos.map((item) => item.payload.doc.data());
+      this.arregloAutos = autos.map((item) => item.payload.doc);
     });
   }
 }
