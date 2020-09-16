@@ -30,6 +30,7 @@ import { RutaAdminValoracionComponent } from './rutas/ruta-admin-valoracion/ruta
 import { RutaAdminAlquilerComponent } from './rutas/ruta-admin-alquiler/ruta-admin-alquiler.component';
 import { RutaClienteInfoComponent } from './rutas/ruta-cliente-info/ruta-cliente-info.component';
 import { RutaClienteAlquilerComponent } from './rutas/ruta-cliente-alquiler/ruta-cliente-alquiler.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { RutaClienteAlquilerComponent } from './rutas/ruta-cliente-alquiler/ruta
     RutaAdminAlquilerComponent,
     RutaClienteInfoComponent,
     RutaClienteAlquilerComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
