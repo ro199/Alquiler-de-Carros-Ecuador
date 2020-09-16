@@ -20,7 +20,7 @@
     "@angular/platform-browser": "~10.0.4",
     "@angular/platform-browser-dynamic": "~10.0.4",
     "@angular/router": "~10.0.4",
-    "firebase": "^7.19.1",
+    "firebase": "^7.20.0",
     "mapbox-gl": "^1.12.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

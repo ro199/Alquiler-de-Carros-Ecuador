@@ -4,9 +4,11 @@
       <div *ngFor="let autos of arregloAutos">
         <div class="col-md">
           <app-adminautocard
-            [nombreAuto]="autos.nombreAuto"
-            [precioAuto]="autos.precioAuto"
-            [urlAutoimage]="autos.urlAutoimage"
+            [id_auto]="autos.id"
+            [nombreAuto]="autos.data().nombre"
+            [precioAuto]="autos.data().precio"
+            [urlAutoimage]="autos.data().imageUrl"
+            [hidden]="autos.data().completed"
           >
           </app-adminautocard>
         </div>
@@ -18,48 +20,105 @@
   </a>
 </div>
 
-<div class="modal fade" id="modalNewCarForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
+<div
+  class="modal fade"
+  id="modalNewCarForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="card-body">
         <!--Header-->
         <div class="md-form text-center">
-          <h4 id= "title-image-rent2" class="card-title font-weight-bold"></h4>
-          <p id="description-car-image2" class="card-text"></p>
-          <img id="image-auto-rent-edit2" class="rounded mx-auto d-block" src="">
+          <h4 id="title-image-rent2" class="card-title font-weight-bold"></h4>
+          <p id="description-car-image2" class="card-text">Registro</p>
+          <img
+            id="image-auto-rent-edit2"
+            class="rounded mx-auto d-block"
+            [src]="imgSrc"
+          />
         </div>
         <!--Body-->
-        <div class="md-form">
-          <i class="fas fa-signature prefix black-text"></i>
-          <input type="text" id="form_nombre2" class="black-text form-control">
-          <label for="form_nombre2" style="color: black">Nombre Auto</label>
-        </div>
-        <div class="md-form">
-          <i class="fas fa-money-check-alt prefix black-text"></i>
-          <input type="text" id="form_precio2" class="black-text form-control">
-          <label for="form_precio2" style="color: black">Precio Auto</label>
-        </div>
-        <div class="md-form">
-          <i class="fas fa-images prefix black-text"></i>
-          <input type="file" id="form_file2" class="black-text form-control">
-        </div>
-        <div class="text-center mt-4">
-          <button id="addnewButton" class="btn waves-effect waves-light btn-rounded"
-                  style="background-color: #52489C;" onclick="saveNewCarFireBase()">Aceptar
-          </button>
-          <hr class="hr-light mb-3 mt-4">
-          <div class="inline-ul text-center d-flex justify-content-center">
-            <a class="p-2 m-2 tw-ic">
-              <i class="fab fa-twitter white-text"></i>
-            </a>
-            <a class="p-2 m-2 li-ic">
-              <i class="fab fa-facebook white-text"> </i>
-            </a>
-            <a class="p-2 m-2 ins-ic">
-              <i class="fab fa-instagram white-text"> </i>
-            </a>
+        <form
+          [formGroup]="formTemplate"
+          (submit)="onSubmit(formTemplate.value)"
+        >
+          <div class="md-form">
+            <i class="fas fa-signature prefix black-text"></i>
+            <input
+              type="text"
+              id="form_nombre2"
+              class="black-text form-control"
+              formControlName="nombre"
+            />
+            <label for="form_nombre2" style="color: black">Nombre Auto</label>
           </div>
+          <div class="md-form">
+            <i class="fas fa-car prefix black-text"></i>
+            <input
+              type="text"
+              id="form_motor2"
+              class="black-text form-control"
+              formControlName="nmotor"
+            />
+            <label for="form_motor2" style="color: black">Numero Motor</label>
+          </div>
+          <div class="md-form">
+            <i class="fas fa-money-check-alt prefix black-text"></i>
+            <input
+              type="number"
+              id="form_precio2"
+              class="black-text form-control"
+              formControlName="precio"
+            />
+            <label for="form_precio2" style="color: black">Precio Auto</label>
+          </div>
+          <div class="md-form">
+            <i class="fas fa-images prefix black-text"></i>
+            <input
+              type="file"
+              accept="image/*"
+              class="form-control"
+              formControlName="imageUrl"
+              id="form_file2"
+              class="black-text form-control"
+              (change)="showPreview($event)"
+            />
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.imageUrl.errors?.required"
+            >
+              Este campo es requerido
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button
+              type="submit"
+              id="addnewButton"
+              class="btn waves-effect waves-light btn-rounded"
+              style="background-color: #52489c"
+            >
+              Aceptar
+            </button>
+          </div>
+        </form>
+
+        <!-- -->
+
+        <hr class="hr-light mb-3 mt-4"/>
+        <div class="inline-ul text-center d-flex justify-content-center">
+          <a class="p-2 m-2 tw-ic">
+            <i class="fab fa-twitter white-text"></i>
+          </a>
+          <a class="p-2 m-2 li-ic">
+            <i class="fab fa-facebook white-text"> </i>
+          </a>
+          <a class="p-2 m-2 ins-ic">
+            <i class="fab fa-instagram white-text"> </i>
+          </a>
         </div>
       </div>
     </div>

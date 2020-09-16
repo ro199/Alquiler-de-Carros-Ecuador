@@ -15,9 +15,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AutocardComponent } from './components/autocard/autocard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AuthService} from './servicios/http/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './servicios/http/auth.service';
 import { AdministradorComponent } from './rutas/administrador/administrador.component';
 import { ClienteComponent } from './rutas/cliente/cliente.component';
 import { AdminautocardComponent } from './components/adminautocard/adminautocard.component';
@@ -31,6 +31,7 @@ import { RutaAdminAlquilerComponent } from './rutas/ruta-admin-alquiler/ruta-adm
 import { RutaClienteInfoComponent } from './rutas/ruta-cliente-info/ruta-cliente-info.component';
 import { RutaClienteAlquilerComponent } from './rutas/ruta-cliente-alquiler/ruta-cliente-alquiler.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -64,8 +65,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
-    AngularFireAuthModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

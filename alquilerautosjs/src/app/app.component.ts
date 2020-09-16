@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   title = 'alquilerautosjs';
   description = 'Angular-Fire-Demo';
 
-  autosValue = '';
+  /*autosValue = '';
   autos: Observable<any[]>;
 
   constructor(public db: AngularFirestore) {
@@ -21,5 +22,5 @@ export class AppComponent {
   onSubmit() {
     this.db.collection('autos').add({ content: this.autosValue });
     this.autosValue = '';
-  }
+  }*/
 }
