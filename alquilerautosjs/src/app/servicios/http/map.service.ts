@@ -36,7 +36,7 @@ export class MapService {
       .addTo(this.map);
 
     new mapboxgl.Marker()
-      .setLngLat([-80.9658982,-2.211785])
+      .setLngLat([-80.9658982, -2.211785])
       .addTo(this.map);
 
     this.map.addControl(new mapboxgl.NavigationControl());

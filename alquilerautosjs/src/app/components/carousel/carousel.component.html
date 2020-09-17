@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-md-12 text-center">
+      <p class="font-weight-bold" style="font-size: 40px;">¿Qué tipo de auto necesitas?</p>
+      <p class="font-weight-bold" style="font-size: 25px;">ALQUILER DE AUTOS ECONÓMICOS</p>
+    </div>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="400000">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"
+          style="background-color: #52489C"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1" style="background-color: #52489C"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2" style="background-color: #52489C"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row">
+          <ng-container *ngFor="let autos of arregloAutos.slice(0,3)">
+            <div class="col-12 col-md-4">
+              <app-autocard
+                [nombreAuto]="autos.nombreAuto"
+                [precioAuto]="autos.precioAuto"
+                [urlAutoimage]="autos.urlAutoimage"
+              >
+              </app-autocard>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <ng-container *ngFor="let autos of arregloAutos.slice(3,6)">
+            <div class="col-12 col-md-4">
+              <app-autocard
+                [nombreAuto]="autos.nombreAuto"
+                [precioAuto]="autos.precioAuto"
+                [urlAutoimage]="autos.urlAutoimage"
+              >
+              </app-autocard>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <ng-container *ngFor="let autos of arregloAutos.slice(6,9)">
+            <div class="col-12 col-md-4">
+              <app-autocard
+                [nombreAuto]="autos.nombreAuto"
+                [precioAuto]="autos.precioAuto"
+                [urlAutoimage]="autos.urlAutoimage"
+              >
+              </app-autocard>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev w-auto" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon rounded-circle" aria-hidden="true"
+            style="background-color: #52489C"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next w-auto" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon rounded-circle" aria-hidden="true"
+            style="background-color: #52489C"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+

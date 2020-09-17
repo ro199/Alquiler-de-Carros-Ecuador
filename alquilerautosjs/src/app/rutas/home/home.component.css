@@ -12,17 +12,10 @@
   );
 }
 
-.card {
-  background-color: rgba(126, 123, 215, 0.2);
-}
-
-.md-form label {
-  color: #ffffff;
-}
-
 h6 {
   line-height: 1.7;
 }
+
 /* Chart.js */
 @-webkit-keyframes chartjs-render-animation {
   from {
@@ -51,7 +44,9 @@ h6 {
 
 
 /*asdfasdf*/
-* {box-sizing: border-box}
+* {
+  box-sizing: border-box
+}
 
 /* Style the tab */
 .tab {
@@ -108,29 +103,37 @@ h6 {
 /*Rate*/
 
 .mdb-rating .rate-popover {
-  color: grey; }
+  color: grey;
+}
 
 .mdb-rating .live {
-  color: black; }
+  color: black;
+}
 
 .mdb-rating .oneStar {
-  color: #44370f; }
+  color: #44370f;
+}
 
 .mdb-rating .twoStars {
-  color: #96781e; }
+  color: #96781e;
+}
 
 .mdb-rating .threeStars {
-  color: #e2b52e; }
+  color: #e2b52e;
+}
 
 .mdb-rating .fourStars {
-  color: #f1ba12; }
+  color: #f1ba12;
+}
 
 .mdb-rating .fiveStars {
-  color: #f3cb06; }
+  color: #f3cb06;
+}
 
 .mdb-rating .amber-text {
   color: #ffc107 !important;
 }
+
 .checked {
   color: orange;
 }

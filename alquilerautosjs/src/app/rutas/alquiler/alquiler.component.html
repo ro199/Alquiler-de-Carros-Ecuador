@@ -1,0 +1,77 @@
+<div class="container-fluid mt-lg-5">
+  <div class="row mb-2">
+    <div class="col-md">
+      <!--Auto-->
+      <div class="card-header bg-transparent">
+        <img class="img-fluid" src="./assets/Auto1.svg"/>
+      </div>
+      <div class="card-body text-center">
+        <h4 class="card-title font-weight-bold">Chevrolet D – MAX</h4>
+        <p class="card-text">180$ / por día</p>
+      </div>
+    </div>
+    <div class="col-md-8 border">
+      <div class="card-body">
+        <!--Formulario-->
+        <h3 class="black-text font-weight-bold" style="font-size: 1rem;">Ingrese lugares y fechas</h3>
+        <div class="md-form">
+          <i class="fas fa-map-marker-alt prefix black-text"></i>
+          <input type="text" id="form_lugar_recogida" class="black-text form-control">
+          <label for="form_lugar_recogida">Lugar de recogida del auto</label>
+        </div>
+        <div class="md-form">
+          <i class="fas fa-map-marker-alt prefix black-text"></i>
+          <input type="text" id="form_lugar_entrega" class="black-text form-control">
+          <label for="form_lugar_entrega">Lugar de entrega del auto</label>
+        </div>
+        <div class="md-form">
+          <i class="fas fa-calendar-alt prefix black-text"></i>
+          <input type="text" id="form_fecha_recogida" class="black-text form-control"
+                 data-provide="datepicker">
+          <label for="form_fecha_recogida">Fecha de Recogida</label>
+        </div>
+        <div class="md-form">
+          <i class="fas fa-calendar-alt prefix black-text"></i>
+          <input type="text" id="form_fecha_entrega" class="black-text form-control"
+                 data-provide="datepicker">
+          <label for="form_fecha_entrega">Fecha de Entrega</label>
+        </div>
+        <!--Pago-->
+        <h3 class="black-text font-weight-bold" style="font-size: 1rem;">Seleccione un Método de Pago </h3>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                 value="Tarjeta de Crédito" checked>
+          <label class="form-check-label" for="exampleRadios1"><i class="fab fa-cc-visa prefix black-text"></i>
+            Tarjeta de Crédito
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                 value="Transferencia Bancaria">
+
+          <label class="form-check-label" for="exampleRadios2"><i class="fas fa-comments-dollar prefix black-text"></i>
+            Transferencia Bancaria
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                 value="PayPal">
+          <label class="form-check-label" for="exampleRadios3"><i class="fab fa-paypal prefix black-text"></i>
+            PayPal
+          </label>
+
+        </div>
+        <div class="text-center mt-4">
+          <button
+            id="rentCarButton"
+            class="btn  waves-effect waves-light btn-rounded"
+            style="background-color: #52489C;"
+          >
+            Alquilar Auto
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>

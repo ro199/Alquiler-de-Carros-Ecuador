@@ -15,6 +15,9 @@ import {RutaAdminInfoComponent} from './rutas/ruta-admin-info/ruta-admin-info.co
 import {RutaAdminValoracionComponent} from './rutas/ruta-admin-valoracion/ruta-admin-valoracion.component';
 import {RutaClienteInfoComponent} from './rutas/ruta-cliente-info/ruta-cliente-info.component';
 import {RutaClienteAlquilerComponent} from './rutas/ruta-cliente-alquiler/ruta-cliente-alquiler.component';
+import {AdminUpdateFormComponent} from './components/forms/admin-update-form/admin-update-form.component';
+import {AdminAddFormComponent} from './components/forms/admin-add-form/admin-add-form.component';
+import {AlquilerComponent} from './rutas/alquiler/alquiler.component';
 
 
 const routes: Routes = [
@@ -47,6 +50,10 @@ const routes: Routes = [
     component: RegistroComponent
   },
   {
+    path: 'alquiler/:id',
+    component: AlquilerComponent
+  },
+  {
     path: 'cliente',
     component: ClienteComponent,
     children: [
@@ -75,7 +82,17 @@ const routes: Routes = [
       },
       {
         path: 'catalogo',
-        component: RutaAdminCatalogoComponent
+        component: RutaAdminCatalogoComponent,
+        children: [
+          {
+            path: 'nuevo',
+            component: AdminAddFormComponent
+          },
+          {
+            path: 'editar/:id',
+            component: AdminUpdateFormComponent
+          },
+        ]
       },
       {
         path: 'valoracion',
