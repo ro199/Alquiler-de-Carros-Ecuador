@@ -14,7 +14,7 @@ export class RutaAdminCatalogoComponent implements OnInit {
 
   arregloAutos: any = [];
 
-  constructor(private readonly _autoService: AutoService, private readonly _router: Router) {
+  constructor(private readonly _autoService: AutoService, public readonly _router: Router) {
   }
 
   ngOnInit(): void {
