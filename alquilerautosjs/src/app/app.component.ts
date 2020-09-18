@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from './servicios/http/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'alquilerautosjs';
   description = 'Angular-Fire-Demo';
 
-  /*autosValue = '';
-  autos: Observable<any[]>;
+  userStatus = this.firebaseService.userStatus;
 
-  constructor(public db: AngularFirestore) {
-    this.autos = db.collection('autos').valueChanges();
+  constructor(private firebaseService: AuthService) {
+    console.log('COMPOENT MAIN FIRST');
+
   }
 
-  onSubmit() {
-    this.db.collection('autos').add({ content: this.autosValue });
-    this.autosValue = '';
-  }*/
+  async ngOnInit(): Promise<void> {
+    await this.firebaseService.userChanges();
+    this.firebaseService.userStatusChanges.subscribe(x => this.userStatus = x);
+    console.log('UserStatusONINIT', this.userStatus);
+  }
+
 }

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ruta-admin-info.component.css']
 })
 export class RutaAdminInfoComponent implements OnInit {
-
+getCurrer
   constructor() { }
 
   ngOnInit(): void {

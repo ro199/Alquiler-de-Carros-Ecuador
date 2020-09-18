@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {AuthService} from '../../servicios/http/auth.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -12,23 +11,22 @@ import {Router} from '@angular/router';
 export class RegistroComponent implements OnInit {
   registerForm = new FormGroup({
     nombre: new FormControl(''),
+    apellido: new FormControl(''),
+    telefono: new FormControl(''),
+    cedula: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
   });
 
-  constructor(private authSvc: AuthService, private router: Router) {
+  constructor(private authSvc: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
-  onRegister(): void {
-    const {nombre, email, password} = this.registerForm.value;
+  async onRegister(): Promise<void> {
     try {
-      const user = this.authSvc.register(nombre, email, password);
-      if (user) {
-        this.router.navigate(['/dashboard']);
-      }
+      await this.authSvc.register(this.registerForm.value);
     } catch (e) {
       console.log('Error Register', e);
     }

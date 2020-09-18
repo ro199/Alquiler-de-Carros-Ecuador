@@ -29,25 +29,22 @@
         </li>
       </ul>
       <div class="md-form my-0" *ngIf="!(user$ | async)">
-        <button class="btn btn-outline-white mr-sm-2 btn-rounded" data-toggle="modal" data-target="#modalLoginForm"
-                id="initsesion">Iniciar Sesión
+        <button class="btn btn-outline-white mr-sm-2 btn-rounded" routerLink="/login">Iniciar Sesión
         </button>
       </div>
 
       <div class="md-form my-0" *ngIf="!(user$ | async)">
-        <button class="btn btn-outline-white mr-sm-2 btn-rounded" data-toggle="modal"
-                data-target="#modalRegisterForm" id="initregister">Registrarse
+        <button class="btn btn-outline-white mr-sm-2 btn-rounded" routerLink="/registro">Registrarse
         </button>
       </div>
       <div class="md-form my-0" *ngIf="(user$ | async)">
-        <button class="btn btn-outline-white mr-sm-2 btn-rounded" id="Cuenta" routerLink="/administrador">Cuenta
+        <button class="btn btn-outline-white mr-sm-2 btn-rounded" id="Cuenta" (click)="irCuenta()">Cuenta
         </button>
       </div>
       <div class="md-form my-0" *ngIf="(user$ | async)">
         <button class="btn btn-outline-white mr-sm-2 btn-rounded" id="cerrarsesion" (click)="logOut()">Cerrar Sesión
         </button>
       </div>
-
     </div>
   </div>
 </nav>
