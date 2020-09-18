@@ -1,7 +1,6 @@
 export class Auto {
-  id_autos: number; //this is the key
-  nommbre: string;
+  nombre: string;
   precio: number;
   nmotor: string;
-  source: string;
+  imageUrl: string;
 }

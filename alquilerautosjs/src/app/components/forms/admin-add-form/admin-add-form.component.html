@@ -6,10 +6,7 @@
       [src]="imgSrc"
     />
   </div>
-  <form
-    [formGroup]="formTemplate"
-    (submit)="onSubmit(formTemplate.value)"
-  >
+  <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
     <div class="md-form">
       <i class="fas fa-signature prefix black-text"></i>
       <input

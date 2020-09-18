@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { __assign } from 'tslib';
 import { Auto } from '../../components/Clases/auto';
 
 @Injectable({
@@ -20,14 +21,11 @@ export class AutoService {
     });
   }
 
-  updateAuto(auto: Auto): Promise<void> {
-    return this._db
-      .collection('autos')
-      .doc('' + auto.id_autos)
-      .set({ completed: true }, { merge: true });
+  updateAuto(auto: any, id: string): Promise<void> {
+    return this._db.collection('autos').doc(id).set(Object.assign({}, auto));
   }
 
-  deleteAuto(id_autos: number): Promise<void> {
+  deleteAuto(id_autos: string): Promise<void> {
     console.log('entre al delete el id es: ' + id_autos);
     return this._db
       .collection('autos')
@@ -37,5 +35,9 @@ export class AutoService {
 
   getAutoCollection() {
     return this._db.collection('autos').snapshotChanges();
+  }
+
+  getAutoCollectionForId(idAuto: string) {
+    return this._db.collection('autos').doc(idAuto).snapshotChanges();
   }
 }
