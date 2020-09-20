@@ -24,10 +24,7 @@ export class LoginComponent implements OnInit {
   async onLogIn(): Promise<void> {
     const {email, password} = this.loginForm.value;
     try {
-      const user = await this.authSvc.login(email, password);
-      if (user) {
-        this.router.navigate(['/cuenta']);
-      }
+      await this.authSvc.login(email, password);
     } catch (e) {
       console.log('Error Login', e);
     }

@@ -18,7 +18,8 @@ import {RutaClienteAlquilerComponent} from './rutas/ruta-cliente-alquiler/ruta-c
 import {AdminUpdateFormComponent} from './components/forms/admin-update-form/admin-update-form.component';
 import {AdminAddFormComponent} from './components/forms/admin-add-form/admin-add-form.component';
 import {AlquilerComponent} from './rutas/alquiler/alquiler.component';
-
+import {AuthGuard} from './servicios/http/auth.guard';
+import {CheckUsuario} from './servicios/http/check.usuario';
 
 const routes: Routes = [
   {
@@ -43,10 +44,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [CheckUsuario],
     component: LoginComponent
   },
   {
     path: 'registro',
+    canActivate: [CheckUsuario],
     component: RegistroComponent
   },
   {
@@ -55,6 +58,7 @@ const routes: Routes = [
   },
   {
     path: 'cliente',
+    canActivate: [AuthGuard], data: {roles: ['cliente']},
     component: ClienteComponent,
     children: [
       {
@@ -74,6 +78,7 @@ const routes: Routes = [
   },
   {
     path: 'administrador',
+    canActivate: [AuthGuard], data: {roles: ['administrador']},
     component: AdministradorComponent,
     children: [
       {
@@ -117,7 +122,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

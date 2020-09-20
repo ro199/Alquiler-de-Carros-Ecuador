@@ -1,45 +1,11 @@
-<div
-  class="modal fade"
-  id="modalRegisterForm"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="myModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+<div class="container pt-3">
+  <div class="row pt-lg-5 justify-content-md-center">
+    <div class="card col-md-5 border">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Registrarse</h4>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title w-100 font-weight-bold">Registro</h4>
       </div>
-      <form
-        [formGroup]="registerForm"
-        (submit)="onRegister(registerForm.value)"
-      >
+      <form [formGroup]="registerForm" (submit)="onRegister()">
         <div class="modal-body mx-3">
-          <div class="md-form mb-5">
-            <i class="fas fa-user prefix grey-text"></i>
-            <input
-              type="text"
-              id="orangeForm-ci"
-              class="form-control validate"
-              formControlName="cedula"
-            />
-            <label
-              data-error="wrong"
-              data-success="right"
-              for="orangeForm-ci"
-              style="color: black"
-              >Cédula de Identidad</label
-            >
-          </div>
           <div class="md-form mb-5">
             <i class="fas fa-user prefix grey-text"></i>
             <input
@@ -48,11 +14,7 @@
               class="form-control validate"
               formControlName="nombre"
             />
-            <label
-              data-error="wrong"
-              data-success="right"
-              for="orangeForm-name"
-              style="color: black"
+            <label data-error="wrong" data-success="right" for="orangeForm-name"
               >Nombre</label
             >
           </div>
@@ -60,16 +22,45 @@
             <i class="fas fa-user prefix grey-text"></i>
             <input
               type="text"
-              id="orangeForm-lastName"
+              id="orangeForm-apellido"
               class="form-control validate"
               formControlName="apellido"
             />
             <label
               data-error="wrong"
               data-success="right"
-              for="orangeForm-lastName"
-              style="color: black"
+              for="orangeForm-apellido"
               >Apellido</label
+            >
+          </div>
+          <div class="md-form mb-5">
+            <i class="fas fa-phone prefix grey-text"></i>
+            <input
+              type="text"
+              id="orangeForm-telefono"
+              class="form-control validate"
+              formControlName="telefono"
+            />
+            <label
+              data-error="wrong"
+              data-success="right"
+              for="orangeForm-telefono"
+              >Teléfono</label
+            >
+          </div>
+          <div class="md-form mb-5">
+            <i class="fas fa-id-card prefix grey-text"></i>
+            <input
+              type="text"
+              id="orangeForm-cedula"
+              class="form-control validate"
+              formControlName="cedula"
+            />
+            <label
+              data-error="wrong"
+              data-success="right"
+              for="orangeForm-cedula"
+              >Cédula</label
             >
           </div>
           <div class="md-form mb-5">
@@ -84,24 +75,7 @@
               data-error="wrong"
               data-success="right"
               for="orangeForm-direction"
-              style="color: black"
               >Dirección Domiciliaria</label
-            >
-          </div>
-          <div class="md-form mb-5">
-            <i class="fas fa-phone prefix grey-text"></i>
-            <input
-              type="number"
-              id="orangeForm-phone"
-              class="form-control validate"
-              formControlName="telefono"
-            />
-            <label
-              data-error="wrong"
-              data-success="right"
-              for="orangeForm-phone"
-              style="color: black"
-              >Teléfono</label
             >
           </div>
           <div class="md-form mb-5">
@@ -116,24 +90,19 @@
               data-error="wrong"
               data-success="right"
               for="orangeForm-email"
-              style="color: black"
               >Email</label
             >
           </div>
-
           <div class="md-form mb-4">
             <i class="fas fa-lock prefix grey-text"></i>
+
             <input
               type="password"
               id="orangeForm-pass"
               class="form-control validate"
               formControlName="password"
             />
-            <label
-              data-error="wrong"
-              data-success="right"
-              for="orangeForm-pass"
-              style="color: black"
+            <label data-error="wrong" data-success="right" for="orangeForm-pass"
               >Contraseña</label
             >
           </div>
@@ -147,3 +116,4 @@
     </div>
   </div>
 </div>
+<br /><br /><br /><br />

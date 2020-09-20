@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../servicios/http/auth.service';
-import { UsuarioService } from '../../servicios/http/usuario.service';
-import { Router } from '@angular/router';
-import { Usuario } from '../Clases/usuario';
 
 @Component({
   selector: 'app-registro',
@@ -11,45 +8,28 @@ import { Usuario } from '../Clases/usuario';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
-  usuario: Usuario;
   isSubmitted: boolean;
 
   registerForm = new FormGroup({
-    cedula: new FormControl('', [
-      Validators.required,
-      Validators.minLength(9),
-      Validators.maxLength(10),
-    ]),
-    nombre: new FormControl('', Validators.required),
-    apellido: new FormControl('', Validators.required),
-    direccion: new FormControl('', Validators.required),
-    telefono: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    nombre: new FormControl(''),
+    apellido: new FormControl(''),
+    telefono: new FormControl(''),
+    cedula: new FormControl(''),
+    direccion: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
   });
 
-  constructor(
-    private readonly _authSvc: AuthService,
-    private readonly _usuarioService: UsuarioService,
-    private readonly _router: Router
-  ) {}
+  constructor(private readonly _authSvc: AuthService) {}
 
   ngOnInit(): void {}
 
-  onRegister(formValue): void {
+  async onRegister(): Promise<void> {
     this.isSubmitted = true;
 
     try {
       if (this.registerForm.valid) {
-        this._usuarioService.createUsuario(formValue);
-        const user = this._authSvc.register(
-          formValue.nombre,
-          formValue.email,
-          formValue.password
-        );
-        if (user) {
-          this._router.navigate(['/catalogo']);
-        }
+        await this._authSvc.register(this.registerForm.value);
       } else {
         console.error('Error al validar el form ');
       }
