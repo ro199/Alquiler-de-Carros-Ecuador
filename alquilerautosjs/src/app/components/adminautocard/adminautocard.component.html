@@ -1,5 +1,5 @@
 <div class="card mb-2">
-  <img class="card-img-top" [src]="urlAutoimage"/>
+  <img class="card-img-top" [src]="urlAutoimage" />
   <div class="card-body text-center">
     <h4 class="card-title font-weight-bold">{{ nombreAuto }}</h4>
     <p class="card-text">Empezar desde {{ precioAuto }}$ / por día</p>
@@ -8,13 +8,15 @@
       class="btn btn-editar btn-rounded waves-effect waves-light"
       style="background-color: #52489c"
       (click)="editarAuto(id_auto)"
-    >Editar</a>
+      >Editar</a
+    >
     <a
       type="button"
       class="btn btn-editar btn-rounded"
       style="background-color: #52489c"
       [hidden]="hidden"
       (click)="eliminarAuto(id_auto)"
-    >Eliminar</a>
+      >Eliminar</a
+    >
   </div>
 </div>
