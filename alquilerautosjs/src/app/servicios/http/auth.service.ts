@@ -73,6 +73,7 @@ export class AuthService {
       const getUser = await userdb.get();
       this.currentUser = getUser.data();
       this.setUserStatus(this.currentUser);
+      localStorage.setItem('rol', getUser.data().rol);
       await this.router.navigate(['/cliente']);
 
     } catch (error) {

@@ -79,6 +79,7 @@ export class RutaClienteAlquilerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }
