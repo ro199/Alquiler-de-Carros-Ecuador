@@ -36,6 +36,9 @@ import { AdminUpdateFormComponent } from './components/forms/admin-update-form/a
 import { AdminAddFormComponent } from './components/forms/admin-add-form/admin-add-form.component';
 import { AlquilerComponent } from './rutas/alquiler/alquiler.component';
 import { HomeMainFormComponent } from './components/forms/home-main-form/home-main-form.component';
+import { RutaAdminOfertasComponent } from './rutas/ruta-admin-ofertas/ruta-admin-ofertas.component';
+import { AdminofertacardComponent } from './components/adminofertacard/adminofertacard.component';
+import { AdminOfertaFormComponent } from './components/forms/admin-oferta-form/admin-oferta-form.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +70,9 @@ import { HomeMainFormComponent } from './components/forms/home-main-form/home-ma
     AdminAddFormComponent,
     AlquilerComponent,
     HomeMainFormComponent,
+    RutaAdminOfertasComponent,
+    AdminofertacardComponent,
+    AdminOfertaFormComponent,
   ],
   imports: [
     BrowserModule,

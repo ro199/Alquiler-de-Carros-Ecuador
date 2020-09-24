@@ -20,6 +20,8 @@ import {AdminAddFormComponent} from './components/forms/admin-add-form/admin-add
 import {AlquilerComponent} from './rutas/alquiler/alquiler.component';
 import {AuthGuard} from './servicios/http/auth.guard';
 import {CheckUsuario} from './servicios/http/check.usuario';
+import {RutaAdminOfertasComponent} from './rutas/ruta-admin-ofertas/ruta-admin-ofertas.component';
+import {AdminOfertaFormComponent} from './components/forms/admin-oferta-form/admin-oferta-form.component';
 
 const routes: Routes = [
   {
@@ -100,8 +102,22 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'ofertas',
+        component: RutaAdminOfertasComponent,
+        children: [
+          {
+            path: 'nuevo',
+            component: AdminOfertaFormComponent
+          },
+          {
+            path: 'editar/:id',
+            component: AdminOfertaFormComponent
+          },
+        ]
+      },
+      {
         path: 'valoracion',
-        component: RutaAdminValoracionComponent
+        component: RutaAdminValoracionComponent,
       },
       {
         path: 'alquiler',
