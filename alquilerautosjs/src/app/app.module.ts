@@ -39,6 +39,7 @@ import { HomeMainFormComponent } from './components/forms/home-main-form/home-ma
 import { RutaAdminOfertasComponent } from './rutas/ruta-admin-ofertas/ruta-admin-ofertas.component';
 import { AdminofertacardComponent } from './components/adminofertacard/adminofertacard.component';
 import { AdminOfertaFormComponent } from './components/forms/admin-oferta-form/admin-oferta-form.component';
+import { RateModalComponent } from './components/rate-modal/rate-modal.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { AdminOfertaFormComponent } from './components/forms/admin-oferta-form/a
     RutaAdminOfertasComponent,
     AdminofertacardComponent,
     AdminOfertaFormComponent,
+    RateModalComponent,
   ],
   imports: [
     BrowserModule,
