@@ -1,17 +1,17 @@
 <div class="tab-pane" id="panel101" role="tabpanel">
   <div class="container-fluid">
     <div class="row mb-2 justify-content-center">
-      <div *ngFor="let alquiler of arregloTodosAlquilers">
+      <div *ngFor="let alquiler of rentas">
         <div class="col-md">
           <app-clientealquilercard
-            [fechaEntrega]="alquiler.fechaEntrega"
-            [fechaRecogida]="alquiler.fechaRecogida"
-            [lugarEntrega]="alquiler.lugarEntrega"
-            [lugarRecogida]="alquiler.lugarRecogida"
-            [nombreAuto]="alquiler.nombreAuto"
-            [precioAuto]="alquiler.precioAuto"
-            [urlAutoimage]="alquiler.urlAutoimage"
-            [modoPago]="alquiler.modopago"
+            [fechaEntrega]="alquiler.fecha_entrega"
+            [fechaRecogida]="alquiler.fecha_recogida"
+            [lugarEntrega]="alquiler.lugar_entrega"
+            [lugarRecogida]="alquiler.lugar_recogida"
+            [modoPago]="alquiler.metodo_pago"
+            [idAuto]="alquiler.id_autos"
+            [precioAuto]="alquiler.total_pagar"
+            [idUsuario]="alquiler.id_usuario"
           >
           </app-clientealquilercard>
         </div>

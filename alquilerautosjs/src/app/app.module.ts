@@ -40,6 +40,11 @@ import { RutaAdminOfertasComponent } from './rutas/ruta-admin-ofertas/ruta-admin
 import { AdminofertacardComponent } from './components/adminofertacard/adminofertacard.component';
 import { AdminOfertaFormComponent } from './components/forms/admin-oferta-form/admin-oferta-form.component';
 import { RateModalComponent } from './components/rate-modal/rate-modal.component';
+import { RentaService } from './servicios/http/renta.service';
+import { AutoService } from './servicios/http/auto.service';
+import { UsuarioService } from './servicios/http/usuario.service';
+import { OfertaService } from './servicios/http/oferta.service';
+import { PuntuacionService } from './servicios/http/puntuacion.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +90,14 @@ import { RateModalComponent } from './components/rate-modal/rate-modal.component
     AngularFireStorageModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    RentaService,
+    AutoService,
+    UsuarioService,
+    OfertaService,
+    PuntuacionService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

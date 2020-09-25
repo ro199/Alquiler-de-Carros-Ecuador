@@ -12,7 +12,7 @@
     </div>
     <div class="col-md-8 border">
       <div class="card-body">
-        <form [formGroup]="formRenta" (submit)="onSubmit()">
+        <form [formGroup]="formRenta" (submit)="onSubmit(formRenta.value)">
           <h3 class="black-text font-weight-bold" style="font-size: 1rem">
             Ingrese lugares y fechas
           </h3>
@@ -23,8 +23,17 @@
               id="form_lugar_recogida"
               class="black-text form-control"
               formControlName="lugar_recogida"
+              required
             />
             <label for="form_lugar_recogida">Lugar de recogida del auto</label>
+            <div
+              class="text-danger"
+              *ngIf="
+                isSubmitted && formControls.lugar_recogida.errors?.required
+              "
+            >
+              Este campo es requerido
+            </div>
           </div>
           <div class="md-form">
             <i class="fas fa-map-marker-alt prefix black-text"></i>
@@ -35,6 +44,12 @@
               formControlName="lugar_entrega"
             />
             <label for="form_lugar_entrega">Lugar de entrega del auto</label>
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.lugar_entrega.errors?.required"
+            >
+              Este campo es requerido
+            </div>
           </div>
           <div class="md-form">
             <i class="fas fa-calendar-alt prefix black-text"></i>
@@ -45,6 +60,14 @@
               formControlName="fecha_recogida"
             />
             <label for="form_fecha_recogida">Fecha de Recogida</label>
+            <div
+              class="text-danger"
+              *ngIf="
+                isSubmitted && formControls.fecha_recogida.errors?.required
+              "
+            >
+              Este campo es requerido
+            </div>
           </div>
           <div class="md-form">
             <i class="fas fa-calendar-alt prefix black-text"></i>
@@ -55,6 +78,12 @@
               formControlName="fecha_entrega"
             />
             <label for="form_fecha_entrega">Fecha de Entrega</label>
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.fecha_entrega.errors?.required"
+            >
+              Este campo es requerido
+            </div>
           </div>
           <!--Pago-->
           <h3 class="black-text font-weight-bold" style="font-size: 1rem">
@@ -100,6 +129,12 @@
               ><i class="fab fa-paypal prefix black-text"></i>
               PayPal
             </label>
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.metodo_pago.errors?.required"
+            >
+              Este campo es requerido
+            </div>
           </div>
           <div class="text-center mt-4">
             <button

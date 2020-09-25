@@ -9,7 +9,7 @@ import { AutoService } from 'src/app/servicios/http/auto.service';
 export class CatalogoComponent implements OnInit {
   arregloAutos: any = [];
 
-  constructor(private _autoService: AutoService) {}
+  constructor(private readonly _autoService: AutoService) {}
 
   ngOnInit(): void {
     this.getAutoCollection();

@@ -1,15 +1,24 @@
 <div class="card mb-2">
-  <img class="card-img-top" [src]="urlAutoimage">
+  <img class="card-img-top" [src]="urlAutoimage" />
   <div class="card-body text-center">
-    <h4 class="card-title font-weight-bold">{{nombreAuto}}</h4>
-    <p class="card-text">Fecha de recogida: {{fechaRecogida}}</p>
-    <p class="card-text">Fecha de entrega: {{fechaEntrega}}</p>
-    <p class="card-text">Lugar de recogida: {{lugarRecogida}}</p>
-    <p class="card-text">Lugar de entrega: {{lugarEntrega}}</p>
-    <p class="card-text">Total a pagar: {{precioAuto}}</p>
-    <p class="card-text">Método de pago: {{modoPago}}</p>
-    <a data-toggle="modal"
-       data-target="#modalRate"  type="button" class="btn btn-alquilar btn-rounded waves-effect waves-light" style="background-color: #52489C">Valorar</a>
+    <h4 class="card-title font-weight-bold">{{ nombreAuto }}</h4>
+    <p class="card-text">Fecha de recogida: {{ fechaRecogida }}</p>
+    <p class="card-text">Fecha de entrega: {{ fechaEntrega }}</p>
+    <p class="card-text">Lugar de recogida: {{ lugarRecogida }}</p>
+    <p class="card-text">Lugar de entrega: {{ lugarEntrega }}</p>
+    <p class="card-text">Total a pagar: {{ precioAuto }}</p>
+    <p class="card-text">Método de pago: {{ modoPago }}</p>
+    <a
+      data-toggle="modal"
+      data-target="#modalRate"
+      type="button"
+      class="btn btn-alquilar btn-rounded waves-effect waves-light"
+      style="background-color: #52489c"
+      (click)="cambiarEstado(idAutoModel)"
+      >Valorar</a
+    >
   </div>
 </div>
-
+<div *ngIf="estado">
+  <app-rate-modal [idAuto]="idAuto" [idUsuario]="idUsuario"> </app-rate-modal>
+</div>

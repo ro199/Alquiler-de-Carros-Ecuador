@@ -1,85 +1,50 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/servicios/http/auth.service';
+import { AutoService } from 'src/app/servicios/http/auto.service';
+import { RentaService } from 'src/app/servicios/http/renta.service';
 
 @Component({
   selector: 'app-ruta-cliente-alquiler',
   templateUrl: './ruta-cliente-alquiler.component.html',
-  styleUrls: ['./ruta-cliente-alquiler.component.css']
+  styleUrls: ['./ruta-cliente-alquiler.component.css'],
 })
 export class RutaClienteAlquilerComponent implements OnInit {
-  arregloTodosAlquilers = [
-    {
-      id: 0,
-      urlAutoimage: './assets/Auto1.svg',
-      nombreAuto: 'Chevrolet D – MAX',
-      precioAuto: '105.00',
-      fechaRecogida: '12/02/2020',
-      fechaEntrega: '13/02/2020',
-      lugarRecogida: 'Quito',
-      lugarEntrega: 'Quito',
-      modopago: 'Transferencia Bancaria'
-    },
-    {
-      id: 1,
-      urlAutoimage: './assets/Auto2.svg',
-      nombreAuto: 'Mazda BT – 50',
-      precioAuto: '95.00',
-      fechaRecogida: '12/02/2020',
-      fechaEntrega: '13/02/2020',
-      lugarRecogida: 'Quito',
-      lugarEntrega: 'Quito',
-      modopago: 'Transferencia Bancaria'
-    },
-    {
-      id: 2,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00',
-      fechaRecogida: '12/02/2020',
-      fechaEntrega: '13/02/2020',
-      lugarRecogida: 'Quito',
-      lugarEntrega: 'Quito',
-      modopago: 'Transferencia Bancaria'
-    },
-    {
-      id: 3,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00',
-      fechaRecogida: '12/02/2020',
-      fechaEntrega: '13/02/2020',
-      lugarRecogida: 'Quito',
-      lugarEntrega: 'Quito',
-      modopago: 'Transferencia Bancaria'
-    },
-    {
-      id: 4,
-      urlAutoimage: './assets/Auto2.svg',
-      nombreAuto: 'Mazda BT – 50',
-      precioAuto: '95.00',
-      fechaRecogida: '12/02/2020',
-      fechaEntrega: '13/02/2020',
-      lugarRecogida: 'Quito',
-      lugarEntrega: 'Quito',
-      modopago: 'Transferencia Bancaria'
-    },
-    {
-      id: 5,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00',
-      fechaRecogida: '12/02/2020',
-      fechaEntrega: '13/02/2020',
-      lugarRecogida: 'Quito',
-      lugarEntrega: 'Quito',
-      modopago: 'Transferencia Bancaria'
-    },
-  ];
+  id_usuario: string;
+  rentas;
+  autos;
 
-  constructor() {
-  }
+  constructor(
+    private readonly _rentaService: RentaService,
+    private readonly _autoService: AutoService,
+    private readonly _authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-
+    this.getAutosRentados();
   }
 
+  async getAutosRentados() {
+    await this.obtenerIdUsuario();
+
+    console.log(this.id_usuario);
+    const obsRentas = await this._rentaService.getRentaIdUsuario(
+      this.id_usuario
+    );
+    await obsRentas.subscribe(
+      (renta: any) => {
+        this.rentas = renta;
+      },
+      (error) => console.error(error)
+    );
+  }
+
+  async obtenerIdUsuario() {
+    await this._authService
+      .getCurrentUser()
+      .then((user) => (this.id_usuario = user.uid))
+      .catch((error) => {
+        alert('Debes logearte');
+        console.error(error);
+      });
+  }
 }

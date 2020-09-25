@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Auto } from 'src/app/components/Clases/auto';
 import { AutoService } from 'src/app/servicios/http/auto.service';
 import { RentaService } from '../../servicios/http/renta.service';
 import * as moment from 'moment';
+import { AuthService } from 'src/app/servicios/http/auth.service';
 
 @Component({
   selector: 'app-alquiler',
@@ -17,22 +18,28 @@ export class AlquilerComponent implements OnInit {
   imageUrl: string;
   nombreAuto: string;
   precioAuto: number;
+  id_usuario: string;
+  isSubmitted: boolean;
 
   formRenta = new FormGroup({
-    lugar_recogida: new FormControl(''),
-    lugar_entrega: new FormControl(''),
-    fecha_recogida: new FormControl(''),
-    fecha_entrega: new FormControl(''),
-    metodo_pago: new FormControl(''),
+    lugar_recogida: new FormControl('', Validators.required),
+    lugar_entrega: new FormControl('', Validators.required),
+    fecha_recogida: new FormControl('', Validators.required),
+    fecha_entrega: new FormControl('', Validators.required),
+    metodo_pago: new FormControl('', Validators.required),
   });
 
   constructor(
     private readonly _autoService: AutoService,
-    private readonly _activatedRoute: ActivatedRoute
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly _rentaService: RentaService,
+    private readonly _authService: AuthService,
+    private readonly _router: Router
   ) {}
 
   ngOnInit(): void {
     this.getAutoData();
+    this.resetForm();
   }
 
   getAutoData() {
@@ -56,20 +63,54 @@ export class AlquilerComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    console.log(this.formRenta.value);
-    const diferencia = this.diferenciaDias(
-      this.formRenta.value.fecha_recogida,
-      this.formRenta.value.fecha_entrega
-    );
-    const valorPagar = diferencia * this.precioAuto;
-    console.log('El Valor a pagar es: ', valorPagar);
+  async onSubmit(formRentaValue) {
+    this.isSubmitted = true;
+    if (this.formRenta.valid) {
+      const diferencia = await this.diferenciaDias(
+        formRentaValue.fecha_recogida,
+        formRentaValue.fecha_entrega
+      );
+      const valorPagar = diferencia * this.precioAuto;
+      let datosRenta;
+      datosRenta = formRentaValue;
+      datosRenta.total_pagar = valorPagar;
+      datosRenta.estado = 'Ocupado';
+      datosRenta.id_autos = this.id;
+      await this._authService
+        .getCurrentUser()
+        .then((user) => (datosRenta.id_usuario = user.uid))
+        .catch((error) => {
+          alert('Debes logearte');
+          console.error(error);
+        });
+
+      console.log(datosRenta.id_usuario);
+      this._rentaService.createRenta(datosRenta);
+      const ruta = ['/cliente', 'alquiler'];
+      this._router.navigate(ruta);
+    }
   }
 
-  diferenciaDias(fechaRecogida: string, fechaEntrega: string) {
-    var fecha1 = moment(fechaRecogida);
-    var fecha2 = moment(fechaEntrega);
+  async diferenciaDias(fechaRecogida: string, fechaEntrega: string) {
+    var fecha1 = await moment(fechaRecogida);
+    var fecha2 = await moment(fechaEntrega);
 
     return fecha2.diff(fecha1, 'days');
+  }
+
+  get formControls() {
+    return this.formRenta.controls;
+  }
+
+  resetForm(): void {
+    this.formRenta.reset();
+    this.formRenta.setValue({
+      lugar_recogida: '',
+      lugar_entrega: '',
+      fecha_recogida: '',
+      fecha_entrega: '',
+      metodo_pago: '',
+    });
+    this.isSubmitted = false;
   }
 }

@@ -35,4 +35,10 @@ export class RentaService {
   getRenta() {
     return this._db.collection('renta').snapshotChanges();
   }
+
+  getRentaIdUsuario(idUsuario: string) {
+    return this._db
+      .collection('renta', (ref) => ref.where('id_usuario', '==', idUsuario))
+      .valueChanges();
+  }
 }
