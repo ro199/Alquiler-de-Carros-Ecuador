@@ -45,6 +45,7 @@ import { AutoService } from './servicios/http/auto.service';
 import { UsuarioService } from './servicios/http/usuario.service';
 import { OfertaService } from './servicios/http/oferta.service';
 import { PuntuacionService } from './servicios/http/puntuacion.service';
+import { OfertaAutoCardComponent } from './components/oferta-auto-card/oferta-auto-card.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { PuntuacionService } from './servicios/http/puntuacion.service';
     AdminofertacardComponent,
     AdminOfertaFormComponent,
     RateModalComponent,
+    OfertaAutoCardComponent,
   ],
   imports: [
     BrowserModule,

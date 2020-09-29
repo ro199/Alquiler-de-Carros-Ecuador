@@ -56,6 +56,7 @@ const routes: Routes = [
   },
   {
     path: 'alquiler/:id',
+    canActivate: [AuthGuard], data: {roles: ['cliente']},
     component: AlquilerComponent
   },
   {
