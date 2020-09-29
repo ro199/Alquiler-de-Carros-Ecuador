@@ -1,9 +1,9 @@
 <div class="container-fluid mt-lg-5">
   <div class="row mb-2 justify-content-center">
-    <div *ngFor="let ofertas of arregloAutos">
-      <div class="col-md">
-        <app-autocard
-          [id_oferta]="ofertas.id"
+    <ng-container *ngFor="let ofertas of arregloAutos">
+      <div class="col-md-4">
+        <app-oferta-auto-card
+          [id_Oferta]="ofertas.id"
           [nombreOferta]="ofertas.data().nombre"
           [precioOferta]="ofertas.data().valor"
           [porcentajeOferta]="ofertas.data().porcentaje"
@@ -11,8 +11,8 @@
           [descripcionOferta]="ofertas.data().descripcion"
           [id_auto]="ofertas.data().id_autos"
         >
-        </app-autocard>
+        </app-oferta-auto-card>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
