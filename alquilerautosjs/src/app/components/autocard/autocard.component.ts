@@ -7,14 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./autocard.component.css'],
 })
 export class AutocardComponent implements OnInit {
-  @Input() id_Oferta: string;
-  @Input() nombreOferta: string;
-  @Input() precioOferta: string;
-  @Input() porcentajeOferta: string;
+  @Input() id: string;
+  @Input() nombreAuto: string;
+  @Input() precioAuto: string;
+  @Input() urlAutoimage: string;
   @Input() hidden: string;
-  @Input() descripcionOferta: string;
-  @Input() urlAutoimageOferta: string;
-  @Input() id_auto: string;
 
   autoList: any;
 
