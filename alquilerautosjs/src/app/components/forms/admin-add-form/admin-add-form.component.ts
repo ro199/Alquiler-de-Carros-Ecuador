@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {finalize} from 'rxjs/operators';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AngularFireStorage} from '@angular/fire/storage';
-import {Router} from '@angular/router';
-import {AutoService} from '../../../servicios/http/auto.service';
+import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Router } from '@angular/router';
+import { AutoService } from '../../../servicios/http/auto.service';
 
 @Component({
   selector: 'app-admin-add-form',
   templateUrl: './admin-add-form.component.html',
-  styleUrls: ['./admin-add-form.component.css']
+  styleUrls: ['./admin-add-form.component.css'],
 })
 export class AdminAddFormComponent implements OnInit {
   imgSrc: string;
@@ -25,8 +25,8 @@ export class AdminAddFormComponent implements OnInit {
   constructor(
     private readonly _storage: AngularFireStorage,
     private readonly _router: Router,
-    private readonly _autoService: AutoService) {
-  }
+    private readonly _autoService: AutoService
+  ) {}
 
   ngOnInit(): void {
     this.resetForm();
@@ -84,5 +84,4 @@ export class AdminAddFormComponent implements OnInit {
     this.selectedImage = null;
     this.isSubmitted = false;
   }
-
 }

@@ -1,23 +1,33 @@
 <router-outlet></router-outlet>
-<div class="tab-pane" id="panel101" role="tabpanel" *ngIf="_router.url === '/administrador/ofertas'">
+<div
+  class="tab-pane"
+  id="panel101"
+  role="tabpanel"
+  *ngIf="_router.url === '/administrador/ofertas'"
+>
   <div class="container-fluid">
     <div class="row mb-2 justify-content-center">
-      <ng-container *ngFor="let autos of arregloAutos">
+      <ng-container *ngFor="let ofertas of arregloOfertas">
         <div class="col-md-6">
           <app-adminofertacard
-            [id_auto]="autos.id"
-            [nombreAuto]="autos.nombre"
-            [precioAuto]="autos.precio"
-            [urlAutoimage]="autos.imageUrl"
-            [ofertatexto]="autos.textOferta"
+            [id_oferta]="ofertas.id"
+            [nombreOferta]="ofertas.data().nombre"
+            [precioOferta]="ofertas.data().valor"
+            [porcentajeOferta]="ofertas.data().porcentaje"
+            [urlAutoimageOferta]="ofertas.data().link_web"
+            [descripcionOferta]="ofertas.data().descripcion"
+            [id_auto]="ofertas.data().id_autos"
           >
           </app-adminofertacard>
         </div>
       </ng-container>
     </div>
   </div>
-  <a class="float waves-effect waves-light" *ngIf="_router.url === '/administrador/ofertas'" (click)="nuevaOferta()">
+  <a
+    class="float waves-effect waves-light"
+    *ngIf="_router.url === '/administrador/ofertas'"
+    (click)="nuevaOferta()"
+  >
     <i class="fa fa-plus my-float"></i>
   </a>
 </div>
-

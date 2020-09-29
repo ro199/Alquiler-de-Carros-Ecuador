@@ -34,4 +34,10 @@ export class UsuarioService {
   getUsuario() {
     return this._db.collection('usuario').snapshotChanges();
   }
+
+  getUsuarioPorId(idUsuario: string) {
+    return this._db
+      .collection('usuario', (ref) => ref.where('uid', '==', idUsuario))
+      .valueChanges();
+  }
 }
