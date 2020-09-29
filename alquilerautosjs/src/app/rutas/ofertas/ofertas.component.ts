@@ -1,53 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { OfertaService } from 'src/app/servicios/http/oferta.service';
 
 @Component({
   selector: 'app-ofertas',
   templateUrl: './ofertas.component.html',
-  styleUrls: ['./ofertas.component.css']
+  styleUrls: ['./ofertas.component.css'],
 })
 export class OfertasComponent implements OnInit {
-  arregloAutos = [
-    {
-      id: 0,
-      urlAutoimage: './assets/Auto1.svg',
-      nombreAuto: 'Chevrolet D – MAX',
-      precioAuto: '105.00'
-    },
-    {
-      id: 1,
-      urlAutoimage: './assets/Auto2.svg',
-      nombreAuto: 'Mazda BT – 50',
-      precioAuto: '95.00'
-    },
-    {
-      id: 2,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00'
-    },
-    {
-      id: 3,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00'
-    },
-    {
-      id: 4,
-      urlAutoimage: './assets/Auto2.svg',
-      nombreAuto: 'Mazda BT – 50',
-      precioAuto: '95.00'
-    },
-    {
-      id: 5,
-      urlAutoimage: './assets/Auto3.svg',
-      nombreAuto: 'KIA SPORTAGE ACTIVE',
-      precioAuto: '100.00'
-    },
-  ];
+  arregloAutos = [];
 
-  constructor() { }
+  constructor(private readonly _ofertaService: OfertaService) {}
 
   ngOnInit(): void {
+    this.getOferta();
   }
 
+  getOferta() {
+    this._ofertaService
+      .getOferta()
+      .subscribe(
+        (oferta) => (this.arregloAutos = oferta.map((item) => item.payload.doc))
+      );
+  }
 }

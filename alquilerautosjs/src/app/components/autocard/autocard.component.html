@@ -1,15 +1,18 @@
 <div class="card mb-2">
-  <img class="img-fluid" [src]="urlAutoimage" />
+  <img class="img-fluid" [src]="urlAutoimageOferta" />
   <div class="card-body text-center">
-    <h4 class="card-title font-weight-bold">{{ nombreAuto }}</h4>
-    <p class="card-text">Empezar desde {{ precioAuto }}$ / por día</p>
+    <h4 class="card-title font-weight-bold">{{ nombreOferta }}</h4>
+    <h5 class="card-title font-weight-bold">Para el Auto: {{ nombreAuto }}</h5>
+    <p class="card-text">{{ descripcionOferta }}</p>
+    <p class="card-text">Empezar desde {{ precioOferta }}$ / por día</p>
     <a
       type="button"
       class="btn btn-small btn-alquilar btn-rounded waves-effect waves-light"
       target="#modalRentCar"
       style="background-color: #52489c"
-      (click)="alquilar(id)"
-      >Alquilar</a>
+      (click)="alquilar(id_auto)"
+      >Alquilar</a
+    >
     <br /><br />
     <a type="button" class="btn-floating btn-small btn-fb"
       ><i class="fab fa-facebook-f"></i

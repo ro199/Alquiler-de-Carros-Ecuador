@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-autocard',
@@ -7,18 +7,20 @@ import {Router} from '@angular/router';
   styleUrls: ['./autocard.component.css'],
 })
 export class AutocardComponent implements OnInit {
-  @Input() urlAutoimage: string;
-  @Input() nombreAuto: string;
-  @Input() precioAuto: string;
-  @Input() id: string;
+  @Input() id_Oferta: string;
+  @Input() nombreOferta: string;
+  @Input() precioOferta: string;
+  @Input() porcentajeOferta: string;
+  @Input() hidden: string;
+  @Input() descripcionOferta: string;
+  @Input() urlAutoimageOferta: string;
+  @Input() id_auto: string;
 
   autoList: any;
 
-  constructor(private readonly _router: Router) {
-  }
+  constructor(private readonly _router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   alquilar(id): void {
     console.log(id);

@@ -1,11 +1,15 @@
 <div class="container-fluid mt-lg-5">
   <div class="row mb-2 justify-content-center">
-    <div *ngFor="let autos of arregloAutos">
+    <div *ngFor="let ofertas of arregloAutos">
       <div class="col-md">
         <app-autocard
-          [nombreAuto]="autos.nombreAuto"
-          [precioAuto]="autos.precioAuto"
-          [urlAutoimage]="autos.urlAutoimage"
+          [id_oferta]="ofertas.id"
+          [nombreOferta]="ofertas.data().nombre"
+          [precioOferta]="ofertas.data().valor"
+          [porcentajeOferta]="ofertas.data().porcentaje"
+          [urlAutoimageOferta]="ofertas.data().link_web"
+          [descripcionOferta]="ofertas.data().descripcion"
+          [id_auto]="ofertas.data().id_autos"
         >
         </app-autocard>
       </div>
