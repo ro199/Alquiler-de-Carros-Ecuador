@@ -41,8 +41,9 @@ export class RateModalComponent implements OnInit {
       datosPuntuacion.id_usuario = this.idUsuario;
       this._puntuacionService.createPuntuacion(datosPuntuacion);
       console.log(datosPuntuacion);
-      const url = ['/cliente', 'info'];
-      this._router.navigate(url);
+      $('#modalRate').modal('hide');
+      // const url = ['/cliente', 'info'];
+      // this._router.navigate(url);
     }
   }
 
